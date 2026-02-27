@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Wing | Aruna Luxury Specialty Chennai</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body style="background: var(--bg-light);">
+    <nav id="topNav" class="scrolled">
+        <div class="nav-wrap">
+            <a href="/" class="logo">ARUNA <span>ELITE</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/services.html" class="active">Specialties</a></li>
+                <li><a href="/doctors.html">Faculty</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-v5" style="height: 50vh;">
+        <div class="hero-v5-bg"><img src="/hero.png"></div>
+        <div class="hero-v5-overlay"
+            style="background: linear-gradient(180deg, rgba(26,54,93,0.8) 0%, rgba(26,54,93,0.4) 100%);"></div>
+        <div class="premium-container">
+            <div class="hero-v5-content" style="text-align: center; margin: 0 auto;">
+                <h1 id="serviceName" class="reveal" style="color: var(--white); font-size: 5rem;">Medical Wing</h1>
+                <p id="serviceTagline" class="reveal" style="color: rgba(255,255,255,0.8); margin: 0 auto 30px;">
+                    Chennai’s premiere center for specialized clinical mastery.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-row">
+        <div class="premium-container">
+            <div class="grid-2-row">
+                <div class="reveal">
+                    <h2 style="color: var(--primary); margin-bottom: 30px; font-size: 3rem;">Clinical Overview</h2>
+                    <p id="serviceDesc" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px;">Aruna
+                        Elite’s specialized clinical wings are designed for India’s most prominent families. Each tower
+                        combines ultra-modern surgical robotics with the high-touch hospitality of a luxury retreat.</p>
+                    <ul style="display: grid; gap: 20px;">
+                        <li style="display: flex; gap: 15px; align-items: center;"><i class="fas fa-check-circle"
+                                style="color: var(--secondary);"></i> Private Surgical Coordination</li>
+                        <li style="display: flex; gap: 15px; align-items: center;"><i class="fas fa-check-circle"
+                                style="color: var(--secondary);"></i> Dedicated Recovery Sanctuary Suite</li>
+                        <li style="display: flex; gap: 15px; align-items: center;"><i class="fas fa-check-circle"
+                                style="color: var(--secondary);"></i> AIIMS-Certified Faculty Faculty</li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <div
+                        style="background: var(--white); padding: 50px; border-radius:30px; border: 2px solid var(--secondary); box-shadow: var(--shadow-luxury);">
+                        <h3 style="color: var(--primary); margin-bottom: 30px;">Wing Specialist Team</h3>
+                        <div id="mappingSection">
+                            <!-- Doctor Mapping will appear here -->
+                        </div>
+                        <a id="bookServiceBtn" href="/book.html" class="btn-premium btn-fill"
+                            style="width: 100%; margin-top: 30px; text-align: center;">BOOK WING CONSULTATION</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="/main.js"></script>
+    <script type="module">
+        const services = {
+            cardio: {
+                name: "Robotic Cardiology", tagline: "Heart precision at the speed of clinical mastery.",
+                desc: "Aruna Elite’s cardiology tower utilizes the latest Gen-3 robotic arms for bloodless interventions. Our facility ensures zero-wait clinical processing and absolute recovery serenity in Chennai.",
+                doctors: [{ id: 'arul', name: 'Dr. Arul Karthik', rank: 'Chief Physician' }]
+            },
+            neuro: {
+                name: "Neuro-Science Tower", tagline: "Excellence in brain and spine restoration.",
+                desc: "From advanced cognitive mapping to the most complex neuro-surgical restoration in South India. Lead by our global masters using intraoperative robotics.",
+                doctors: [{ id: 'meena', name: 'Dr. Meenakshi Iyer', rank: 'Faculty Head' }]
+            },
+            ortho: {
+                name: "Orthopaedic Wing", tagline: "Precision in structural medical restoration.",
+                desc: "Exclusively serving our elite patients with robotic joint replacements and structural bone mastery. Our Chennai facility is the regional anchor for sports recovery.",
+                doctors: [{ id: 'vignesh', name: 'Dr. Vignesh Kumar', rank: 'Senior Surgeon' }]
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id') || 'cardio';
+        const srv = services[id] || services.cardio;
+
+        if (srv) {
+            document.getElementById('serviceName').innerText = srv.name;
+            document.getElementById('serviceTagline').innerText = srv.tagline;
+            document.getElementById('serviceDesc').innerText = srv.desc;
+            document.title = `${srv.name} | Aruna Elite Clinical Wings`;
+            document.getElementById('bookServiceBtn').href = `/book.html?service=${id}`;
+
+            const mappingHtml = srv.doctors.map(doc => `
+                <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px; cursor: pointer;" onclick="location.href='/doctor-detail.html?id=${doc.id}'">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background: #e2e8f0; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user-md" style="font-size: 2rem; color: var(--primary);"></i></div>
+                    <div>
+                        <h4 style="margin:0;">${doc.name}</h4>
+                        <p style="margin:0; font-size: 0.8rem; color: var(--secondary); font-weight: 700;">${doc.rank}</p>
+                    </div>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; opacity: 0.3;"></i>
+                </div>
+            `).join('');
+            document.getElementById('mappingSection').innerHTML = mappingHtml;
+        }
+    </script>
+</body>
+
+</html>

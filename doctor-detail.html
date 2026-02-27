@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Profile | Aruna Luxury Specialty Chennai</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body style="background: var(--bg-light);">
+    <nav id="topNav" class="scrolled">
+        <div class="nav-wrap">
+            <a href="/" class="logo">ARUNA <span>ELITE</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/services.html">Specialties</a></li>
+                <li><a href="/doctors.html">Faculty</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section-row" style="padding-top: 180px;">
+        <div class="premium-container">
+            <div class="grid-2-row" style="align-items: flex-start;">
+                <div class="reveal">
+                    <div id="docProfileImg"
+                        style="width: 100%; height: 600px; border-radius: var(--radius-section); overflow: hidden; box-shadow: var(--shadow-luxury); background: #e2e8f0; display:flex; align-items:center; justify-content:center;">
+                        <i class="fas fa-user-md" style="font-size: 15rem; color: #94a3b8;"></i>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <h1 id="docName" style="font-size: 4rem; color: var(--primary); margin-bottom: 5px;">Dr. Arul
+                        Karthik</h1>
+                    <p id="docSpecialty"
+                        style="color: var(--secondary); font-weight: 800; font-size: 1.2rem; text-transform: uppercase;">
+                        Chief Physician - Cardiology</p>
+
+                    <div style="display: flex; gap: 30px; margin: 40px 0;">
+                        <div style="text-align: center; border-right: 1px solid #ddd; padding-right: 30px;">
+                            <h2 style="color: var(--secondary); font-size: 2.2rem;">1500+</h2>
+                            <p style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Successful
+                                Procedures</p>
+                        </div>
+                        <div style="text-align: center; border-right: 1px solid #ddd; padding-right: 30px;">
+                            <h2 style="color: var(--secondary); font-size: 2.2rem;">20+</h2>
+                            <p style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Years Mastery</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <h2 style="color: var(--secondary); font-size: 2.2rem;">99%</h2>
+                            <p style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Clinical Success
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">Clinical Credentials</h3>
+                    <p id="docBio"
+                        style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8;">
+                        Distinguished medical graduate from AIIMS, specializing in high-precision surgical intervention.
+                        Our faculty masters are recognized for their clinical contributions to the healthcare excellence
+                        of Chennai and the wider Tamil Nadu region.</p>
+
+                    <a id="bookDoctorBtn" href="/book.html" class="btn-premium btn-fill"
+                        style="width: 100%; text-align: center;">SECURE PRIORITY CONSULTATION</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--primary); color: white; padding: 120px 0 60px;">
+        <div class="premium-container">
+            <div style="text-align: center; opacity: 0.5;">
+                © 2026 Aruna Luxury Specialty Hospital. Arcot Road, Anna Nagar, Chennai.
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script type="module">
+        const doctors = {
+            arul: { name: "Dr. Arul Karthik, MBBS, MD", specialty: "Chief Physician - Cardiology", bio: "Senior Cardiology consultant with over 20 years of experience in robotic-assisted heart care. Recognized as one of Chennai's premier medical masters." },
+            meena: { name: "Dr. Meenakshi Iyer, MD, FRCS", specialty: "Head of Neurological Sciences", bio: "World-class neurosurgeon specializing in brain mapping and high-precision neuro-restoration. Leading the Aruna Elite Chennai wing." },
+            vignesh: { name: "Dr. Vignesh Kumar, MS, MCh", specialty: "Senior Orthopaedic Surgeon", bio: "Master of joint replacement and sports medicine. Combining surgical precision with Chennai's heritage of compassionate bone care." }
+        };
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id') || 'arul';
+        const doc = doctors[id];
+        if (doc) {
+            document.getElementById('docName').innerText = doc.name;
+            document.getElementById('docSpecialty').innerText = doc.specialty;
+            document.getElementById('docBio').innerText = doc.bio;
+            document.title = `${doc.name} | Aruna Elite Faculty`;
+            if (id === 'arul') {
+                document.getElementById('docProfileImg').innerHTML = '<img src="/doctor1.png" style="width:100%; height:100%; object-fit:cover; border-radius: var(--radius-section);">';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Support | Avera Luxury Medical</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateX(10px);
+            background: var(--bg-light);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .fa-chevron-down {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body style="background: var(--bg-light);">
+    <nav class="scrolled">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <i class="fas fa-heart-pulse"></i>
+                <span>AVERA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About Clinic</a></li>
+                <li><a href="/services.html">Services</a></li>
+                <li><a href="/doctors.html">Doctors</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="height: 40vh;">
+        <div class="hero-bg"><img src="/hero.png"></div>
+        <div class="hero-overlay"></div>
+        <div class="nav-container">
+            <div class="hero-content">
+                <h1 class="text-primary">Medical FAQ</h1>
+                <p>Expert answers to your clinical and concierge requirements.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="container" style="padding: 100px 40px;">
+        <div style="max-width: 850px; margin: 0 auto;">
+            <div class="faq-item reveal">
+                <div class="faq-question"><span>How do I book?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Visit the booking page or use our instant callback feature on the home page. Our
+                    medical concierge handles all scheduling.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question"><span>Is insurance accepted?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">We partner with global elite insurance providers. Contact our concierge to
+                    verify your specific coverage.</div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        document.querySelectorAll('.faq-item').forEach(item => { item.addEventListener('click', () => { item.classList.toggle('active'); }); });
+    </script>
+</body>
+
+</html>

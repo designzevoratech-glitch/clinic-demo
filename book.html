@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Consultation | Aruna Luxury Specialty</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body style="background: var(--bg-light);">
+    <nav id="topNav" class="scrolled">
+        <div class="nav-wrap">
+            <a href="/" class="logo">ARUNA <span>ELITE</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/services.html">Specialties</a></li>
+                <li><a href="/doctors.html">Faculty</a></li>
+                <li><a href="/gallery.html">Gallery</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="padding-top: 150px; text-align: center;" class="premium-container">
+        <h1 class="reveal" style="font-size: 4rem; color: var(--primary);">Secure Your <span>Consultation</span></h1>
+        <p class="reveal" style="color: var(--text-muted); max-width: 700px; margin: 0 auto 80px;">Schedule your private
+            clinical visit at our Chennai sanctuary. Our elite medical council will prioritize your recovery.</p>
+
+        <div class="premium-card reveal"
+            style="max-width: 1000px; margin: 0 auto; text-align: left; padding: 60px; border: 2px solid var(--secondary);">
+            <form id="appointmentForm">
+                <div class="grid-2-row" style="gap: 30px; margin-bottom: 30px;">
+                    <div>
+                        <label
+                            style="font-weight: 700; display: block; margin-bottom: 10px; color: var(--primary);">SPECIALTY
+                            WING</label>
+                        <select id="specialtySelect" name="specialty"
+                            style="width:100%; padding:18px; border-radius:12px; border:1px solid #ddd; outline:none; font-family:'Outfit';"
+                            required>
+                            <option value="" disabled selected>Select Specialty</option>
+                            <option value="cardio">Robotic Cardiology</option>
+                            <option value="neuro">Neuro-Mastery</option>
+                            <option value="ayurveda">Heritage Wellness</option>
+                            <option value="general">General Medicine</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 700; display: block; margin-bottom: 10px; color: var(--primary);">THE
+                            FACULTY MASTER</label>
+                        <select id="doctorSelect" name="doctor"
+                            style="width:100%; padding:18px; border-radius:12px; border:1px solid #ddd; outline:none; font-family:'Outfit';"
+                            disabled required>
+                            <option value="" disabled selected>Select Wing First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-2-row" style="gap: 30px; margin-bottom: 30px;">
+                    <div>
+                        <label
+                            style="font-weight: 700; display: block; margin-bottom: 10px; color: var(--primary);">VISIT
+                            DATE</label>
+                        <input type="date" name="date"
+                            style="width:100%; padding:18px; border-radius:12px; border:1px solid #ddd; outline:none; font-family:'Outfit';"
+                            required>
+                    </div>
+                    <div>
+                        <label
+                            style="font-weight: 700; display: block; margin-bottom: 10px; color: var(--primary);">PHONE
+                            (PRIVATE)</label>
+                        <input type="tel" name="phone" placeholder="+91"
+                            style="width:100%; padding:18px; border-radius:12px; border:1px solid #ddd; outline:none; font-family:'Outfit';"
+                            required>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 40px;">
+                    <label style="font-weight: 700; display: block; margin-bottom: 10px; color: var(--primary);">PATIENT
+                        FULL NAME</label>
+                    <input type="text" name="name" placeholder="Full Name"
+                        style="width:100%; padding:18px; border-radius:12px; border:1px solid #ddd; outline:none; font-family:'Outfit';"
+                        required>
+                </div>
+
+                <button type="submit" class="btn-premium btn-fill" style="width: 100%; height: 75px;">SCHEDULE ELITE
+                    CONSULTATION</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal"
+        style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(26,54,93,0.95); z-index:99999; align-items:center; justify-content:center; backdrop-filter: blur(15px);">
+        <div
+            style="background:var(--bg-light); padding:80px; border-radius:30px; text-align:center; max-width:550px; border: 2px solid var(--secondary);">
+            <i class="fas fa-check-circle" style="font-size: 6rem; color: var(--secondary); margin-bottom: 30px;"></i>
+            <h2 style="font-size: 2.5rem; color: var(--primary);">Request Accepted</h2>
+            <p style="color: var(--text-muted); margin-bottom: 40px; margin-top:20px; font-size: 1.1rem;">Our Chennai
+                support team will reach your priority number within 15 minutes to confirm your sanctuary slot.</p>
+            <button id="closeModal" class="btn-premium btn-fill" style="width:100%;">Return to Home</button>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

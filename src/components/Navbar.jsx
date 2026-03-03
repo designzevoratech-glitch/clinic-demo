@@ -43,7 +43,7 @@ export default function Navbar() {
                         <li key={link.name}>
                             <Link
                                 to={link.path}
-                                className={`text-[0.95rem] font-semibold uppercase tracking-wide relative pb-1 transition-opacity ${location.pathname === link.path ? 'opacity-100 text-primary' : 'opacity-80 text-primary hover:opacity-100'}`}
+                                className={`text-[0.95rem] font-bold uppercase tracking-wider relative pb-1 transition-all ${location.pathname === link.path ? 'text-primary' : 'text-main hover:text-primary'}`}
                             >
                                 {link.name}
                                 {location.pathname === link.path && (
